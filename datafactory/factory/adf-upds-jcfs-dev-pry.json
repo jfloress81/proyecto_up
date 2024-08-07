@@ -1,0 +1,9 @@
+{
+	"name": "adf-upds-jcfs-dev-pry",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "6d6011ed-e24c-4d1b-97c0-e70dd8df7b6c",
+		"tenantId": "3705cdfe-1991-48fc-9579-b0da85eec9ee"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"name": "dlsupdsjcfsdevpry",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/cef84362-a808-45fd-ab51-faad514656b5/resourceGroups/cloud-shell-storage-eastus/providers/Microsoft.Storage/storageAccounts/cs2100320036b96187e",
+		"groupId": "dfs"
+	}
+}
