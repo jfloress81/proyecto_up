@@ -1,0 +1,14 @@
+{
+	"name": "LinkedService_pry_ADLS",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://dlsupdsjcfsdevw1d.dfs.core.windows.net/"
+		},
+		"connectVia": {
+			"referenceName": "AutoResolveIntegrationRuntime",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
