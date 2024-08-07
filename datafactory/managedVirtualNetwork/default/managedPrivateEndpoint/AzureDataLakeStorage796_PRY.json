@@ -1,0 +1,7 @@
+{
+	"name": "AzureDataLakeStorage796_PRY",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/cef84362-a808-45fd-ab51-faad514656b5/resourceGroups/rg-upds-jcfs-dev-001/providers/Microsoft.Storage/storageAccounts/dlsupdsjcfsdevw1d",
+		"groupId": "dfs"
+	}
+}
