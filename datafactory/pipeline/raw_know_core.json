@@ -1,0 +1,9 @@
+{
+	"name": "raw_know_core",
+	"properties": {
+		"folder": {
+			"name": "01_raw_source"
+		},
+		"annotations": []
+	}
+}
