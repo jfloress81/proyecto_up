@@ -26,7 +26,24 @@
 							"type": "DelimitedTextReadSettings"
 						}
 					},
-					"enableStaging": false
+					"sink": {
+						"type": "ParquetSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "ParquetWriteSettings"
+						}
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
 				},
 				"inputs": [
 					{
@@ -37,6 +54,12 @@
 							"directorio": "sharedknow_zomato/users",
 							"archivo": "users.csv"
 						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DS_ADLS_PRY_PARQUET",
+						"type": "DatasetReference"
 					}
 				]
 			}
