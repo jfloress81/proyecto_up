@@ -5,8 +5,6 @@
 			{
 				"name": "obtener_lista_pry",
 				"type": "Lookup",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -43,8 +41,6 @@
 			{
 				"name": "Import data",
 				"type": "ForEach",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "obtener_lista_pry",
