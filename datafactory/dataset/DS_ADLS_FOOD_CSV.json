@@ -1,5 +1,5 @@
 {
-	"name": "DS_ADLS_USERS_PARQUET",
+	"name": "DS_ADLS_FOOD_CSV",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LinkedService_pry_ADLS",
@@ -17,25 +17,24 @@
 			}
 		},
 		"annotations": [],
-		"type": "Parquet",
+		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": {
-					"value": "@dataset().archivo",
-					"type": "Expression"
-				},
-				"folderPath": {
-					"value": "@dataset().directorio",
-					"type": "Expression"
-				},
-				"fileSystem": {
-					"value": "@dataset().zona",
-					"type": "Expression"
-				}
+				"fileName": "food.csv",
+				"folderPath": "sharedknow_zomato/food",
+				"fileSystem": "raw"
 			},
-			"compressionCodec": "snappy"
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
 		},
-		"schema": []
+		"schema": [
+			{
+				"name": "\"Id\"|\"Name\"|\"UserId\"|\"Date\"",
+				"type": "String"
+			}
+		]
 	}
 }

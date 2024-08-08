@@ -1,0 +1,21 @@
+{
+	"name": "DS_ADLS_FOOD_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LinkedService_pry_ADLS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "food.parquet",
+				"folderPath": "warehouse_pry/food",
+				"fileSystem": "master"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
