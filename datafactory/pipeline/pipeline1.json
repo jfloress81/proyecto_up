@@ -70,7 +70,12 @@
 				"outputs": [
 					{
 						"referenceName": "DS_ADLS_FOOD_PARQUET",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"zona": "master",
+							"directorio": "warehouse_pry/food",
+							"archivo": "food.parquet"
+						}
 					}
 				]
 			}
