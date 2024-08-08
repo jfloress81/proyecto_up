@@ -1,0 +1,79 @@
+{
+	"name": "DF_USERS",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"type": "DatasetReference"
+					},
+					"name": "SourceUsers"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"type": "DatasetReference"
+					},
+					"name": "SinkHubUsers"
+				}
+			],
+			"transformations": [
+				{
+					"name": "UsersDerivedColumn"
+				},
+				{
+					"name": "HubUsersSelect"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          N as string,",
+				"          userid as string,",
+				"          name as string,",
+				"          email as string,",
+				"          password as string,",
+				"          Age as string,",
+				"          Gender as string,",
+				"          Marital_Status as string,",
+				"          Occupation as string,",
+				"          Monthly_Income as string,",
+				"          Educational_Qualifications as string,",
+				"          Family_size as string,",
+				"          f_actuliz as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> SourceUsers",
+				"SourceUsers derive(Userid = userid) ~> UsersDerivedColumn",
+				"UsersDerivedColumn select(mapColumn(",
+				"          Userid = SourceUsers@userid,",
+				"          name,",
+				"          email,",
+				"          Age,",
+				"          Gender,",
+				"          Marital_Status,",
+				"          Occupation,",
+				"          Monthly_Income,",
+				"          Educational_Qualifications,",
+				"          Family_size,",
+				"          f_actuliz",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> HubUsersSelect",
+				"HubUsersSelect sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SinkHubUsers"
+			]
+		}
+	}
+}

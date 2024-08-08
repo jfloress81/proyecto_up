@@ -1,5 +1,5 @@
 {
-	"name": "DF_FOOD",
+	"name": "DF_MENU",
 	"properties": {
 		"type": "MappingDataFlow",
 		"typeProperties": {
@@ -9,8 +9,7 @@
 						"referenceName": "DS_ADLS_FOOD_PARQUET",
 						"type": "DatasetReference"
 					},
-					"name": "SourceFood",
-					"description": "Import data from DS_ADLS_PARQUET"
+					"name": "SourceMenu"
 				}
 			],
 			"sinks": [
@@ -19,46 +18,51 @@
 						"referenceName": "DS_ADLS_FOOD_PARQUET",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "SinkHubMenu"
 				}
 			],
 			"transformations": [
 				{
-					"name": "DerivedColumn1"
+					"name": "MenuDerivedColumn"
 				},
 				{
-					"name": "HubFood"
+					"name": "HubMenuSelect"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
-				"          N as string,",
+				"          n as string,",
+				"          menu_id as string,",
+				"          r_id as string,",
 				"          f_id as string,",
-				"          item as string,",
-				"          veg_or_non_veg as string,",
+				"          cuisine as string,",
+				"          price as string,",
 				"          f_actuliz as string",
 				"     ),",
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     format: 'parquet') ~> SourceFood",
-				"SourceFood derive(Food_Id = f_id) ~> DerivedColumn1",
-				"DerivedColumn1 select(mapColumn(",
+				"     format: 'parquet') ~> SourceMenu",
+				"SourceMenu derive(Rest_Id = r_id,",
+				"          Food_Id = f_id) ~> MenuDerivedColumn",
+				"MenuDerivedColumn select(mapColumn(",
 				"          Food_Id,",
-				"          item,",
-				"          veg_or_non_veg,",
-				"          f_actuliz",
+				"          Rest_Id,",
+				"          Menu_id = menu_id,",
+				"          Cuisine = cuisine,",
+				"          Price = price,",
+				"          F_Actuliz = f_actuliz",
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> HubFood",
-				"HubFood sink(allowSchemaDrift: true,",
+				"     skipDuplicateMapOutputs: true) ~> HubMenuSelect",
+				"HubMenuSelect sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> SinkHubMenu"
 			]
 		}
 	}

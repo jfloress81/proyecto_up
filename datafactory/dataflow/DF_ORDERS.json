@@ -1,0 +1,70 @@
+{
+	"name": "DF_ORDERS",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"type": "DatasetReference"
+					},
+					"name": "SourceOrders"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"type": "DatasetReference"
+					},
+					"name": "SinkHubOrders"
+				}
+			],
+			"transformations": [
+				{
+					"name": "OrdersDerivedColumn"
+				},
+				{
+					"name": "HubOrdersSelect"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          N as string,",
+				"          order_date as string,",
+				"          sales_qty as string,",
+				"          sales_amount as string,",
+				"          currency as string,",
+				"          user_id as string,",
+				"          r_id as string,",
+				"          f_actuliz as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> SourceOrders",
+				"SourceOrders derive(Rest_Id = r_id) ~> OrdersDerivedColumn",
+				"OrdersDerivedColumn select(mapColumn(",
+				"          Order_date = order_date,",
+				"          Sales_qty = sales_qty,",
+				"          Sales_amount = sales_amount,",
+				"          Currency = currency,",
+				"          User_id = user_id,",
+				"          Rest_Id,",
+				"          F_actuliz = f_actuliz",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> HubOrdersSelect",
+				"HubOrdersSelect sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> SinkHubOrders"
+			]
+		}
+	}
+}

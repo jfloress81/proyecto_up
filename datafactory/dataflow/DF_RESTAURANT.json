@@ -1,0 +1,25 @@
+{
+	"name": "DF_RESTAURANT",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"type": "DatasetReference"
+					},
+					"name": "SourceRestaurant"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet') ~> SourceRestaurant"
+			]
+		}
+	}
+}
