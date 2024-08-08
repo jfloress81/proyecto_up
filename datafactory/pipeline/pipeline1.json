@@ -60,6 +60,8 @@
 						{
 							"name": "Copy_usuario",
 							"type": "Copy",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
@@ -158,7 +160,7 @@
 							"typeProperties": {
 								"variableName": "mensaje",
 								"value": {
-									"value": "@item().obtener_lista_pry",
+									"value": "@item().Lista_tabla",
 									"type": "Expression"
 								}
 							}
