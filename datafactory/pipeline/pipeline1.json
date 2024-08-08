@@ -60,8 +60,6 @@
 						{
 							"name": "Copy_usuario",
 							"type": "Copy",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"timeout": "0.12:00:00",
@@ -119,8 +117,14 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"zona": "raw",
-										"directorio": "sharedknow_zomato/food",
-										"archivo": "food.csv"
+										"directorio": {
+											"value": "@concat('sharedknow_zomato/',item().Lista_tabla)",
+											"type": "Expression"
+										},
+										"archivo": {
+											"value": "@concat(item().Lista_tabla,'.csv')",
+											"type": "Expression"
+										}
 									}
 								}
 							],
@@ -130,16 +134,43 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"zona": "master",
-										"directorio": "warehouse_pry/food",
-										"archivo": "food.parquet"
+										"directorio": {
+											"value": "@concat('warehouse_pry/',item().Lista_tabla)",
+											"type": "Expression"
+										},
+										"archivo": "@concat(item().Lista_tabla,'.parquet')"
 									}
 								}
 							]
+						},
+						{
+							"name": "Set variable1",
+							"type": "SetVariable",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "mensaje",
+								"value": {
+									"value": "@item().Lista_tabla",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
 			}
 		],
+		"variables": {
+			"mensaje": {
+				"type": "String"
+			}
+		},
 		"folder": {
 			"name": "01_raw_source/proyecto"
 		},
