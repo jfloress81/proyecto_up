@@ -29,7 +29,15 @@
 					"sink": {
 						"type": "ParquetSink",
 						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
+							"type": "AzureBlobFSWriteSettings",
+							"maxConcurrentConnections": 2,
+							"copyBehavior": "PreserveHierarchy",
+							"metadata": [
+								{
+									"name": "zona",
+									"value": "master"
+								}
+							]
 						},
 						"formatSettings": {
 							"type": "ParquetWriteSettings"
@@ -59,7 +67,12 @@
 				"outputs": [
 					{
 						"referenceName": "DS_ADLS_PRY_PARQUET",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"zona": "master",
+							"directorio": "warehouse_pry",
+							"archivo": "@concat(item().Lista_tabla,'.parquet')"
+						}
 					}
 				]
 			}
