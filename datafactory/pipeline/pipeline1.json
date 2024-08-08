@@ -120,11 +120,11 @@
 									"parameters": {
 										"zona": "raw",
 										"directorio": {
-											"value": "@concat('sharedknow_zomato/',item().obtener_lista_pry)",
+											"value": "@concat('sharedknow_zomato/',item().Lista_tablas)",
 											"type": "Expression"
 										},
 										"archivo": {
-											"value": "@concat(item().obtener_lista_pry,'.csv')",
+											"value": "@concat(item().Lista_tablas,'.csv')",
 											"type": "Expression"
 										}
 									}
@@ -137,11 +137,11 @@
 									"parameters": {
 										"zona": "master",
 										"directorio": {
-											"value": "@concat('warehouse_pry/',item().obtener_lista_pry)",
+											"value": "@concat('warehouse_pry/',item().Lista_tablas)",
 											"type": "Expression"
 										},
 										"archivo": {
-											"value": "@concat(item().obtener_lista_pry,'.parquet')",
+											"value": "@concat(item().Lista_tablas,'.parquet')",
 											"type": "Expression"
 										}
 									}
