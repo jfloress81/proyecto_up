@@ -1,6 +1,46 @@
 {
 	"name": "raw_know_core",
 	"properties": {
+		"activities": [
+			{
+				"name": "Copy_usuario",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": true,
+					"secureInput": true
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "DS_ADLS_PRY_CSV",
+						"type": "DatasetReference",
+						"parameters": {
+							"zona": "raw",
+							"directorio": "sharedknow_zomato/users",
+							"archivo": "users.csv"
+						}
+					}
+				]
+			}
+		],
 		"folder": {
 			"name": "01_raw_source"
 		},
