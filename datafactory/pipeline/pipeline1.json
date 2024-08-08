@@ -160,7 +160,7 @@
 							"typeProperties": {
 								"variableName": "mensaje",
 								"value": {
-									"value": "@item().Lista_tabla",
+									"value": "@item().Lista_tablas",
 									"type": "Expression"
 								}
 							}
