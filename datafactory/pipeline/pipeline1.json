@@ -118,11 +118,11 @@
 									"parameters": {
 										"zona": "raw",
 										"directorio": {
-											"value": "@concat('sharedknow_zomato/',item().Lista_tabla)",
+											"value": "@concat('sharedknow_zomato/',item().obtener_lista_pry)",
 											"type": "Expression"
 										},
 										"archivo": {
-											"value": "@concat(item().Lista_tabla,'.csv')",
+											"value": "@concat(item().obtener_lista_pry,'.csv')",
 											"type": "Expression"
 										}
 									}
@@ -135,10 +135,13 @@
 									"parameters": {
 										"zona": "master",
 										"directorio": {
-											"value": "@concat('warehouse_pry/',item().Lista_tabla)",
+											"value": "@concat('warehouse_pry/',item().obtener_lista_pry)",
 											"type": "Expression"
 										},
-										"archivo": "@concat(item().Lista_tabla,'.parquet')"
+										"archivo": {
+											"value": "@concat(item().obtener_lista_pry,'.parquet')",
+											"type": "Expression"
+										}
 									}
 								}
 							]
@@ -157,7 +160,7 @@
 							"typeProperties": {
 								"variableName": "mensaje",
 								"value": {
-									"value": "@item().Lista_tabla",
+									"value": "@item().obtener_lista_pry",
 									"type": "Expression"
 								}
 							}
