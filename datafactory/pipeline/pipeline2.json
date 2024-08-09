@@ -1,0 +1,47 @@
+{
+	"name": "pipeline2",
+	"properties": {
+		"activities": [
+			{
+				"name": "DF_FOOD",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DF_FOOD",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"SourceFood": {
+								"zona": "master",
+								"directorio": "warehouse_pry/food",
+								"archivo": "food.parquet"
+							},
+							"SinkHubFood": {
+								"zona": "master",
+								"directorio": "silver",
+								"archivo": "hub_food.parquet"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"folder": {
+			"name": "01_raw_source/proyecto"
+		},
+		"annotations": []
+	}
+}

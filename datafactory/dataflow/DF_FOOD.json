@@ -19,7 +19,7 @@
 						"referenceName": "DS_ADLS_FOOD_PARQUET",
 						"type": "DatasetReference"
 					},
-					"name": "sink1"
+					"name": "SinkHubFood"
 				}
 			],
 			"transformations": [
@@ -58,7 +58,7 @@
 				"     preCommands: [],",
 				"     postCommands: [],",
 				"     skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: true) ~> sink1"
+				"     skipDuplicateMapOutputs: true) ~> SinkHubFood"
 			]
 		}
 	}
