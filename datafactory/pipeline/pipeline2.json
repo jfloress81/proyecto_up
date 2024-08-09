@@ -5,6 +5,8 @@
 			{
 				"name": "DF_FOOD",
 				"type": "ExecuteDataFlow",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -41,8 +43,6 @@
 			{
 				"name": "DF_MENU",
 				"type": "ExecuteDataFlow",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -59,7 +59,7 @@
 						"datasetParameters": {
 							"SourceMenu": {
 								"zona": "master",
-								"directorio": "warehouse_proy/menu",
+								"directorio": "warehouse_pry/menu",
 								"archivo": "menu.parquet"
 							},
 							"SinkHubMenu": {
