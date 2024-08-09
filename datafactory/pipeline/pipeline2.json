@@ -37,6 +37,134 @@
 					},
 					"traceLevel": "Fine"
 				}
+			},
+			{
+				"name": "DF_MENU",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DF_MENU",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"SourceMenu": {
+								"zona": "master",
+								"directorio": "warehouse_proy/menu",
+								"archivo": "menu.parquet"
+							},
+							"SinkHubMenu": {
+								"zona": "master",
+								"directorio": "silver_pry/menu",
+								"archivo": "hub_menu.parquet"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "DF_USERS",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DF_USERS",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"SourceUsers": {
+								"zona": "master",
+								"directorio": "warehouse_proy/users",
+								"archivo": "users.parquet"
+							},
+							"SinkHubUsers": {
+								"zona": "master",
+								"directorio": "silver_pry/users",
+								"archivo": "hub_users.parquet"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "DF_ORDERS",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "DF_ORDERS",
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"SourceOrders": {
+								"zona": "master",
+								"directorio": "warehouse_proy/orders",
+								"archivo": "orders.parquet"
+							},
+							"SinkHubOrders": {
+								"zona": "master",
+								"directorio": "silver_pry/orders",
+								"archivo": "hub_orders.parquet"
+							}
+						}
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			},
+			{
+				"name": "Data flow4",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
 			}
 		],
 		"folder": {
