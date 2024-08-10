@@ -5,8 +5,6 @@
 			{
 				"name": "DF_FOOD",
 				"type": "ExecuteDataFlow",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -79,8 +77,6 @@
 			{
 				"name": "DF_USERS",
 				"type": "ExecuteDataFlow",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -97,7 +93,7 @@
 						"datasetParameters": {
 							"SourceUsers": {
 								"zona": "master",
-								"directorio": "warehouse_proy/users",
+								"directorio": "warehouse_pry/users",
 								"archivo": "users.parquet"
 							},
 							"SinkHubUsers": {
@@ -117,8 +113,6 @@
 			{
 				"name": "DF_ORDERS",
 				"type": "ExecuteDataFlow",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -135,7 +129,7 @@
 						"datasetParameters": {
 							"SourceOrders": {
 								"zona": "master",
-								"directorio": "warehouse_proy/orders",
+								"directorio": "warehouse_pry/orders",
 								"archivo": "orders.parquet"
 							},
 							"SinkHubOrders": {
