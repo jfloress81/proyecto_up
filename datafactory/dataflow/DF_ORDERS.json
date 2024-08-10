@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"referenceName": "DS_ADLS_PRY_PARQUET",
 						"type": "DatasetReference"
 					},
 					"name": "SourceOrders"
@@ -15,7 +15,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"referenceName": "DS_ADLS_PRY_PARQUET",
 						"type": "DatasetReference"
 					},
 					"name": "SinkHubOrders"
@@ -59,6 +59,7 @@
 				"HubOrdersSelect sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
+				"     filePattern:'hub_orders_[n].parquet',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",

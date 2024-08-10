@@ -1,5 +1,5 @@
 {
-	"name": "DS_ADLS_FOOD_CSV",
+	"name": "DS_ADLS_PRY_CSV",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LinkedService_pry_ADLS",

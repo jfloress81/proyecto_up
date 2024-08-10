@@ -27,7 +27,7 @@
 						}
 					},
 					"dataset": {
-						"referenceName": "DS_ADLS_FOOD_CSV",
+						"referenceName": "DS_ADLS_PRY_CSV",
 						"type": "DatasetReference",
 						"parameters": {
 							"zona": "raw",
@@ -113,7 +113,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "DS_ADLS_FOOD_CSV",
+									"referenceName": "DS_ADLS_PRY_CSV",
 									"type": "DatasetReference",
 									"parameters": {
 										"zona": "raw",
@@ -130,7 +130,7 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "DS_ADLS_FOOD_PARQUET",
+									"referenceName": "DS_ADLS_PRY_PARQUET",
 									"type": "DatasetReference",
 									"parameters": {
 										"zona": "master",

@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"referenceName": "DS_ADLS_PRY_PARQUET",
 						"type": "DatasetReference"
 					},
 					"name": "SourceRestaurant"
