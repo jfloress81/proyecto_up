@@ -6,7 +6,7 @@
 			"sources": [
 				{
 					"dataset": {
-						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"referenceName": "DS_ADLS_PRY_PARQUET",
 						"type": "DatasetReference"
 					},
 					"name": "SourceFood",
@@ -16,7 +16,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "DS_ADLS_FOOD_PARQUET",
+						"referenceName": "DS_ADLS_PRY_PARQUET",
 						"type": "DatasetReference"
 					},
 					"name": "SinkHubFood"
@@ -54,6 +54,7 @@
 				"HubFood sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     format: 'parquet',",
+				"     filePattern:'hub_food_[n].parquet',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",

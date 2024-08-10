@@ -1,5 +1,5 @@
 {
-	"name": "DS_ADLS_FOOD_PARQUET",
+	"name": "DS_ADLS_PRY_PARQUET",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "LinkedService_pry_ADLS",
